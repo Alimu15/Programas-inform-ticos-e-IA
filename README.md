@@ -74,7 +74,7 @@ Explicación Breve para cada puntuación:
 •	Node (4): Muchos web devs, nulo conocimiento de IA
 
 Conclusión de la tabla:
-Tras realizar la matriz de decisión ponderada, el lenguaje ganador para el Escenario A es Python, imponiéndose a Java y Node.js como la opción más viable para emplear en este escenario
-Conclusión del ejercicio:
-Viendo los resultados de la tabla, Python gana con 126 puntos. Sinceramente, es la única opción lógica porque, aunque Java sea más rápido, si intento hacer esto en otro lenguaje me pasaría semanas buscando librerías de IA que funcionen, mientras que en Python tengo todo (Pandas, PyTorch) listo para usar y prototipar rápido
-El mayor riesgo que veo es que Python no es famoso por su velocidad; sé que tiene problemas de concurrencia (el famoso GIL) y si mi API recibe muchísimas visitas de golpe, podría saturarse. Para solucionarlo sin volvernos locos, usaría servidores eficientes como Uvicorn, o plantearía una estrategia híbrida: entrenar cómodo en Python y luego exportar el modelo (usando ONNX) para que corra en un servidor más rápido como Java o Go si el proyecto crece mucho.
+Viendo los resultados de la matriz, Python gana de calle con 126 puntos Sinceramente, creo que es la única opción lógica porque, aunque Java tenga mejor rendimiento bruto, si intentase hacer esto en otro lenguaje perdería semanas reinventando la rueda o buscando librerías
+En Python tengo todo el ecosistema (Pandas, PyTorch, Scikit) listo para prototipar y validar el modelo desde el primer día, que es lo prioritario en este escenario
+El mayor riesgo técnico que asumo con esta decisión es la velocidad de respuesta en producción. Sé que Python tiene el problema del GIL y no gestiona la concurrencia real tan bien como Java; si la API recibe un pico enorme de tráfico, podría saturarse rápidamente. Para mitigar esto sin volverme loco al principio, desplegaría usando servidores asíncronos eficientes como Uvicorn. Si el proyecto escala mucho en el futuro, plantearía una estrategia híbrida: entrenar cómodo en Python y luego exportar el modelo (vía ONNX) para ejecutarlo en un servidor de alto rendimiento
+
